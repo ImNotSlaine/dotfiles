@@ -8,5 +8,3 @@
 - **Bar** - Qtile bar
 - **Terminal** - [kitty](github.com/kovidgoyal/kitty)
 - **Shell** - [fish](fishshell.com)
-
-Test
