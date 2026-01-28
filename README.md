@@ -7,4 +7,4 @@
 - **Compositor** - [picom](picom.app)
 - **Bar** - Qtile bar
 - **Terminal** - [kitty](github.com/kovidgoyal/kitty)
-- **Shell** - [fish](fishshell.com)
+- **Shell** - [fish](fishshell.com) with fisher and tide
