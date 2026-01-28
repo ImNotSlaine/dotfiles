@@ -45,6 +45,7 @@ ln -f .config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 echo 'Kitty configured'
 ln -f .config/fish/config.fish ~/.config/fish/config.fish
 echo 'Fish configured'
+cp .config/qtile/wallpaper.jpg ~/.config/qtile/wallpaper.jpg
 ln -f .config/qtile/config.py ~/.config/qtile/config.py
 echo 'Qtile configured'
 
