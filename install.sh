@@ -3,51 +3,76 @@
 
 echo 'Starting dotfiles installation...'
 
-# Qtile
-if pacman -Qs | grep -q "qtile"; then
-	echo 'Qtile installed'
+# Loop for installing main apps
+apps=("qtile" "picom" "feh" "kitty" "fish")
+
+for app in "${apps[@]}"; do
+	if pacman -Qs | grep -q "$app"; then
+		echo "$app already installed"
+	else
+		echo "$app not installed"
+		echo "Installing $app ..."
+		sudo pacman -S "$app"
+	fi
+done
+
+#Checking for fisher and tide
+if pacman -Qs | grep -q fisher; then
+	echo "fisher already installed"
 else
-	echo 'Qtile not installed'
-	echo 'Running pacman -S qtile...'
-	sudo pacman -S qtile
+	echo "fisher not installed"
+	echo "Installing fisher..."
+	curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fi
 
-# Picom
-if pacman -Qs | grep -q "picom"; then
-	echo 'Picom installed'
+if grep -q tide ~/.config/fish/fish_plugins; then
+	echo "tide installed"
 else
-	echo 'Picom not installed'
-	echo 'Running pacman -S picom...'
-	sudo pacman -S picom
+	echo "tide not installed"
+	echo "Installing tide with fisher..."
+	fisher install IlanCosman/tide@v6
 fi
 
-# Feh
-if pacman -Qs | grep -q "feh"; then
-	echo 'Feh installed'
+# Checks for installed fonts
+if fc-list | grep -q MononokiNerd; then
+	echo "MononokiNerdFont already installed, skipping step..."
 else
-	echo 'Feh not installed'
-	echo 'Running pacman -S feh'
-	sudo pacman -S feh
+	if fc-list | grep -q Mononoki; then
+		echo "Mononoki font installed, installing MononokiNerdFont..."
+		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Mononoki.tar.xz
+		mkdir /usr/local/share/fonts/ttf/MononokiNerd
+		sudo tar -xf Mononoki.tar.xz -C /usr/local/share/fonts/ttf/MononokiNerd/
+		
+	else
+		echo "Mononoki not installed, installing MononokiNerdFont..."
+		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Mononoki.tar.xz
+		mkdir /usr/local/share/fonts/ttf/Mononoki
+		sudo tar -xf Mononoki.tar.xz -C /usr/local/share/fonts/ttf/Mononoki/
+	fi
+	echo "MononokiNerdFont succesfully installed!"
 fi
 
-# Kitty
-if pacman -Qs | grep -q "kitty"; then
-	echo 'Kitty installed'
+# Checks if a greeter is installed
+if pacman -Qs | grep -E -q 'lightdm|lxdm|sddm|xorg-xdm'; then
+	echo "Greeter already installed, skipping..."
 else
-	echo 'Kitty not installed'
-	echo 'Running pacman -S kitty...'
-	sudo pacman -S kitty
+	echo "Installing lightdm and lightdm-gtk-greeter..."
+	sudo pacman -S lightdm lightdm-gtk-greeter
+	echo "lightdm succesfully installed!"
 fi
+
+
 
 # Creates a link form the config files in this directory to the original ~/.config/ directory
 echo 'Creating symlinks...'
 ln -f .config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-echo 'Kitty configured'
+echo 'kitty configured'
 ln -f .config/fish/config.fish ~/.config/fish/config.fish
-echo 'Fish configured'
+echo 'fish configured'
 cp .config/qtile/wallpaper.jpg ~/.config/qtile/wallpaper.jpg
 ln -f .config/qtile/config.py ~/.config/qtile/config.py
-echo 'Qtile configured'
+echo 'qtile configured'
 
-echo 'Installation finished'
+echo 'Installation finished :3'
+echo "Enjoy this setup, for information on keybindings and extensive configuration of qtile see the README.md file in .config/qtile"
 exit
