@@ -13,6 +13,7 @@ for app in "${apps[@]}"; do
 		echo "$app not installed"
 		echo "Installing $app ..."
 		sudo pacman -S "$app"
+		echo "$app succesfully installed!"
 	fi
 done
 
@@ -23,6 +24,7 @@ else
 	echo "fisher not installed"
 	echo "Installing fisher..."
 	curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+	echo "fisher succesfully installed!"
 fi
 
 if grep -q tide ~/.config/fish/fish_plugins; then
@@ -31,14 +33,18 @@ else
 	echo "tide not installed"
 	echo "Installing tide with fisher..."
 	fisher install IlanCosman/tide@v6
+	echo "tide succesfully installed"
 fi
+
+# Auto configures tide
+tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time=No --rainbow_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
 
 # Checks for installed fonts
 if fc-list | grep -q MononokiNerd; then
-	echo "MononokiNerdFont already installed, skipping step..."
+	echo "MononokiNerdFont installed"
 else
 	if fc-list | grep -q Mononoki; then
-		echo "Mononoki font installed, installing MononokiNerdFont..."
+		echo "Mononoki font installed, installing MononokiNerdFont as separate font..."
 		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Mononoki.tar.xz
 		mkdir /usr/local/share/fonts/ttf/MononokiNerd
 		sudo tar -xf Mononoki.tar.xz -C /usr/local/share/fonts/ttf/MononokiNerd/
