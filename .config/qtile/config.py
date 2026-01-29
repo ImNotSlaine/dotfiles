@@ -60,31 +60,42 @@ keys = [
 	#################################
 	Key([mod], "1", lazy.group["Main"].toscreen(), desc="Move focus group to Main"),
 	Key([mod], "2", lazy.group["Dev"].toscreen(), desc="Move focus group to Dev"),
-	Key([mod], "3", lazy.group["Test"].toscreen(), desc="Move focus group to 3"),
+	Key([mod], "3", lazy.group["test"].toscreen(), desc="Move focus group to 3"),
 	Key([mod, "control"], "1", lazy.window.togroup("Main"), desc="Move focused window to group Main"),
 	Key([mod, "control"], "2", lazy.window.togroup("Dev"), desc="Move focused window to group Dev"),
 	Key([mod, "control"], "3", lazy.window.togroup("Test"), desc="Move focused window to group 3"),
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    # Move windows between left/right columns or move up/down in current stack.
-    # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    
+	#########################
+	# Focused window	#
+	#########################
+	Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    	Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    	Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    	Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    	Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+	
+	#########################
+	# Move focused window	#
+	#########################    
+	Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    	Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    	Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    	Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+
+	#################
+	# MonadTall	#
+	#################
+	Key([mod, "control"], "l", lazy.layout.grow()),
+	Key([mod, "control"], "h", lazy.layout.shrink()),
+	Key([mod, "control"], "n", lazy.layout.reset()),
+
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    # Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    # Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    # Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    # Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    # Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -129,37 +140,15 @@ for vt in range(1, 8):
     )
 
 
+#################
+# Groups	#
+#################
+
 groups = [
 	Group("Main"),
 	Group("Dev"),
-	Group("Test"),
+	Group("test"),
 ]
-
-
-
-# for i in groups:
-#    keys.extend(
-#        [
-#            # mod + group number = switch to group
-#            Key(
-#                [mod],
-#                i.name,
-#                lazy.group[i.name].toscreen(),
-#                desc=f"Switch to group {i.name}",
-#            ),
-            # mod + shift + group number = switch to & move focused window to group
-#            Key(
-#                [mod, "shift"],
-#                i.name,
-#                lazy.window.togroup(i.name, switch_group=True),
-#                desc=f"Switch to & move focused window to group {i.name}",
-#            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod + shift + group number = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
-#        ]
-#    )
 
 ####################################################################################################
 #      _                    _      
@@ -182,7 +171,9 @@ layouts = [
 	),
     	layout.MonadTall(
 		**layoutsConfigs,
-		ratio=0.6, 
+		max_ratio=0.8,
+		min_ratio=0.5,
+		ratio=0.6,
 		auto_maximize=True,
 	),
     	layout.Zoomy(
