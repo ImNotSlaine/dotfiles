@@ -5,17 +5,21 @@ echo 'Starting dotfiles installation...'
 
 # Loop for installing main apps
 apps=("qtile" "picom" "feh" "kitty" "fish")
+install=()
 
 for app in "${apps[@]}"; do
 	if pacman -Qs | grep -q "$app"; then
 		echo "$app already installed"
 	else
 		echo "$app not installed"
-		echo "Installing $app ..."
-		sudo pacman -S "$app"
-		echo "$app succesfully installed!"
+		install+=$app
 	fi
 done
+
+if (( ${#install[@]} > 0 )); then
+	echo "Installing needed packages..."
+	sudo pacman -S ${install[@]}
+fi
 
 #Checking for fisher and tide
 if pacman -Qs | grep -q fisher; then
@@ -35,9 +39,6 @@ else
 	fisher install IlanCosman/tide@v6
 	echo "tide succesfully installed"
 fi
-
-# Auto configures tide
-tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time=No --rainbow_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
 
 # Checks for installed fonts
 if fc-list | grep -q MononokiNerd; then
