@@ -1,50 +1,46 @@
 #!/bin/bash
-# This script installs all the programs and sets the config files in the current directory, used in the github.com/ImNotSlaine/dotfiles.git.
+# Stops the script if something fails
+set -e
 
-echo 'Starting dotfiles installation...'
+# Variables
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+MGT='\033[0;35m'
+NC='\033[0m'
 
-# Loop for installing packages
-apps=("qtile" "picom" "feh" "kitty" "fish" "rofi" "fisher" "ttf-mononoki-nerd" "lightdm")
-install=()
+# Introduction and warnings
+echo -e "Welcome to the ${MGT}NeoNPunk${NC} installation script" && sleep 1
+echo -e "${RED}This script requires sudo ${NC}in some parts, so keep an eye on the terminal" && sleep 1
+echo -e "${RED}Some personal configurations may override${NC}, execute at your own risk!!!" && sleep 4
 
-for app in "${apps[@]}"; do
-	if pacman -Qs | grep -q -w "$app"; then
-		echo "$app already installed"
-	else
-		echo "$app not installed"
-		install+=$app
-	fi
-done
+# System update
+echo "First a full upgrade..."
+sudo pacman --noconfirm --noprogressbar -Syu
+echo -e "${GREEN}System updated succesfully :D${NC}"
 
-if (( ${#install[@]} > 0 )); then
-	echo "Installing needed packages..."
-	for needed in "${install[@]}"; do
-		if sudo pacman -S "$needed"; then
-			echo "$needed installed succesfully"
-		else
-			echo "Some error has occurred, install $needed manually."
-		fi
-	done
-fi
+# Needed packages
+echo "Let's install the needed packages..."
+sudo pacman -S --noprogressbar --noconfirm --needed kitty qtile feh picom fish fisher ttf-mononoki-nerd fastfetch rofi
+echo -e "${GREEN}All packages installed!${NC}"
 
-# Configure qtile
+# Configuration
+echo "Copying configuration files from the repository..."
 ln -f ./.config/qtile/config.py ~/.config/qtile/config.py
-
-# Configure kitty
+echo -e "${GREEN}qtile configured...${NC}"
 ln -f ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
-
-# Configure fish
+echo -e "${GREEN}kitty configured...${NC}"
 ln -f ./.config/fish/config.fish ~/.config/fish/config.fish
-
-# Cofigure picom
+echo -e "${GREEN}fish configured...${NC}"
 if ls ~/.config | grep -q picom; then
-	echo "~/.config/picom directory already created"
+        echo "~/.config/picom directory already created"
 else
-	mkdir ~/.config/picom
-	echo "Created picom directory in ~/.config/"
+        mkdir ~/.config/picom
+        echo "Created picom directory in ~/.config/"
 fi
 ln -f ./.config/picom/picom.conf ~/.config/picom/picom.conf
+echo -e "${GREEN}picom configured...${NC}"
 
-echo 'Installation finished :3'
-echo "Enjoy this setup, for information on keybindings and extensive configuration of qtile see the README.md file in .config/qtile"
-exit
+# Reboot if wanted
+echo -e "${GREEN}NeoNPunk installed successfully${NC}"
+echo "A reboot is recomended for some configurations to take effect"
+echo -e "Thanks for installing NeoNPunk dotfiles! Have fun\nIf you have any problems or recommendations, create an issue in https://github.com/ImNotSlaine/dotfiles"
