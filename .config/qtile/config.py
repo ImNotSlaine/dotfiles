@@ -119,11 +119,7 @@ keys = [
     # Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.run_extension(extension.DmenuRun(
-	background="#1d1d1b",
-	selected_background="#aa00ff",
-	foreground="#f6f6f5"
-)), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -192,7 +188,7 @@ layouts = [
 #WIP
 
 widget_defaults = dict(
-    font="mononoki",
+    font="MononokiNerdFont",
     fontsize=16,
     padding=3,
 )
