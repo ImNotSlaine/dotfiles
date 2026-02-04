@@ -7,4 +7,4 @@
 - **Compositor** - [picom](picom.app)
 - **Bar** - Qtile bar
 - **Terminal** - [kitty](github.com/kovidgoyal/kitty)
-- **Shell** - [fish](fishshell.com) with [fisher](github.com/jorgebucaran/fisher) and [tide](github.com/IlanCosman/tide)
+- **Shell** - Bash with [Starship](starship.rs)
