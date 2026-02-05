@@ -300,4 +300,4 @@ autostart = [
 ]
 
 for x in autostart:
-  	os.system(x)
+	os.system(x)
