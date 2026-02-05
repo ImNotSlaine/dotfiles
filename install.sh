@@ -20,7 +20,7 @@ echo -e "${GREEN}System updated succesfully :D${NC}"
 
 # Needed packages
 echo "Let's install the needed packages..."
-sudo pacman -S --noprogressbar --noconfirm --needed kitty qtile feh picom ttf-mononoki-nerd fastfetch rofi starship
+sudo pacman -S --noprogressbar --noconfirm --needed lightdm kitty qtile feh picom ttf-mononoki-nerd fastfetch rofi starship
 echo -e "${GREEN}All packages installed!${NC}"
 
 # Configuration
