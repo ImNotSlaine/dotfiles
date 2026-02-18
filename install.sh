@@ -20,23 +20,13 @@ echo -e "${GREEN}System updated succesfully :D${NC}"
 
 # Needed packages
 echo "Let's install the needed packages..."
-sudo pacman -S --noprogressbar --noconfirm --needed kitty qtile feh picom ttf-mononoki-nerd fastfetch rofi starship
+sudo pacman -S --noprogressbar --noconfirm --needed kitty ttf-mononoki-nerd fastfetch rofi starship
 echo -e "${GREEN}All packages installed!${NC}"
 
 # Configuration
 echo "Copying configuration files from the repository..."
-ln -f ./.config/qtile/config.py ~/.config/qtile/config.py
-echo -e "${GREEN}qtile configured...${NC}"
 ln -f ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 echo -e "${GREEN}kitty configured...${NC}"
-if ls ~/.config | grep -q picom; then
-        echo "~/.config/picom directory already created"
-else
-        mkdir ~/.config/picom
-        echo "Created picom directory in ~/.config/"
-fi
-ln -f ./.config/picom/picom.conf ~/.config/picom/picom.conf
-echo -e "${GREEN}picom configured...${NC}"
 ln -f ./.config/starship.toml ~/.config/starship.toml
 echo -e "${GREEN}starship configured...${NC}"
 
