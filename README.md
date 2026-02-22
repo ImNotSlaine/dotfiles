@@ -10,9 +10,11 @@
 
 ## Other configured apps
 
+- **Editor** - [NeoVim](neovim.io)
 - **App launcher** - [Rofi](github.com/davatorium/rofi)
 - **Notifications** - [Dunst](dunst-project.org)
 - **Bar** - [Waybar](github.com/Alexays/Waybar)
+- **File manager** - [Ranger](github.com/ranger/ranger)
 
 ### Information about scripts
 
