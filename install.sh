@@ -20,7 +20,7 @@ echo -e "${GREEN}System updated succesfully :D${NC}"
 
 # Needed packages
 echo "Let's install the needed packages..."
-sudo pacman -S --noprogressbar --noconfirm --needed hyprland hyprpaper waybar kitty ttf-mononoki-nerd fastfetch rofi starship
+sudo pacman -S --noprogressbar --noconfirm --needed hyprland hyprpaper cpio cmake git meson gcc waybar kitty ttf-mononoki-nerd fastfetch rofi starship
 echo -e "${GREEN}All packages installed!${NC}"
 
 # Configuration
@@ -29,8 +29,18 @@ ln -f ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 echo -e "${GREEN}kitty configured...${NC}"
 ln -f ./.config/starship.toml ~/.config/starship.toml
 echo -e "${GREEN}starship configured...${NC}"
-cp ./.config/hypr/wallpapers ~/.config/hypr/wallpapers
+cp -r ./.config/hypr/wallpapers ~/.config/hypr/wallpapers
 ln -f ./.config/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+echo -e "${GREEN}hyprpaper configured...${NC}"
+ln -f ./.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+# Configuration for hyperland plugins
+if hyprpm list | grep -q "hyprland-plugins"; then
+	echo -e "hyprland-plugins repository already cloned"
+else
+	hyprpm add https://github.com/hyprwm/hyprland-plugins
+fi
+hyprpm enable borders-plus-plus
+echo -e "${GREEN}hyprland configured...${NC}"
 
 # Reboot if wanted
 echo -e "${GREEN}NeoNPunk installed successfully${NC}"
