@@ -21,7 +21,9 @@ $git_status\
 # Disable the blank line at the start of the prompt
 # add_newline = false
 [character]
-format = " > "
+format = "$symbol"
+success_symbol = "[  ](fg:#00B899)"
+error_symbol = "[  ](fg:#F24949)"
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
