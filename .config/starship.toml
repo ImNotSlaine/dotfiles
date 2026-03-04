@@ -3,18 +3,18 @@
 add_newline = true
 
 format = """
-[ ](bg:#1D1D1C)\
-[ ](bg:#411654)\
-[ ](bg:#640F8D)\
-[ ](bg:#8708C6)\
+[ ](bg:#00020C)\
+[ ](bg:#391341)\
+[ ](bg:#631B6D)\
+[ ](bg:#8D2399)\
 $os\
 $username\
-[](bg:#00B899 fg:#AA00FF)\
+[](bg:#1D9682 fg:#B72AC4)\
 $directory\
-[](bg:#E5D605 fg:#00B899)\
+[](bg:#F6EC60 fg:#1D9682)\
 $git_branch\
 $git_status\
-[ ](fg:#E5D605 bg:#1D1D1B)\
+[ ](bg:#0F0B15 fg:#F6EC60)\
 \n$character
 """
 
@@ -22,13 +22,13 @@ $git_status\
 # add_newline = false
 [character]
 format = "$symbol"
-success_symbol = "[  ](fg:#00B899)"
-error_symbol = "[  ](fg:#F24949)"
+success_symbol = "[  ](fg:#53D5BF)"
+error_symbol = "[  ](fg:#D25751)"
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
 show_always = true
-style_user = "bg:#AA00FF fg:#F6F6F5"
+style_user = "bg:#B72AC4 fg:#EBF8FF"
 style_root = ""
 format = '[ $user ]($style)'
 disabled = false
@@ -36,14 +36,14 @@ disabled = false
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#AA00FF fg:#F6F6F5"
+style = "bg:#B72AC4 fg:#53D5BF"
 disabled = false # Disabled by default
 
 [os.symbols]
 Arch = " 󰣇 "
 
 [directory]
-style = "bg:#00B899 fg:#1D1D1B"
+style = "bg:#1D9682 fg:#EBF8FF"
 format = "[ $path ]($style)"
 truncation_length = 6
 truncation_symbol = "…/"
@@ -63,11 +63,11 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#E5D605 fg:#1D1D1B"
+style = "bg:#F6EC60 fg:#120306"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#E5D605 fg:#1D1D1B"
+style = "bg:#F6EC60 fg:#120306"
 format = '[$all_status$ahead_behind ]($style)'
 
 [time]
