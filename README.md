@@ -21,3 +21,12 @@
 The install.sh script will search for all programs used in this dotfiles and install them, then it creates symlinks from the local copy repository to where the config should be, in this process it also checks and creates any needed directories.
 
 If you already have all packages installed or want to skip all messages, just run configdotfiles.sh or fastinstall.sh, **remember that fastinstall.sh will still ask for sudo password**.
+
+## Tokyo Neon
+
+This palette is based in [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) and other palettes ([TechnoGarten](lospec.com/palette-list/technogarten) and [Chasm](lospec.com/palette-list/chasm))
+
+| #0e0a2e | Background color |
+|---------|------------------|
+| #fffdeb | Foreground color |
+
