@@ -26,7 +26,15 @@ If you already have all packages installed or want to skip all messages, just ru
 
 This palette is based in [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) and other palettes ([TechnoGarten](lospec.com/palette-list/technogarten) and [Chasm](lospec.com/palette-list/chasm))
 
-| #0e0a2e | Background color |
-|---------|------------------|
-| #fffdeb | Foreground color |
-
+| Color      	| Normal  	| Light shade 	|
+|------------	|---------	|-------------	|
+| Background 	| #0e0a2e 	|             	|
+| Foreground 	| #fffdeb 	|             	|
+| Black      	| #0e0a2f 	| #0e0a2f     	|
+| Red        	| #d53c6a 	| #fd75ca     	|
+| Green      	| #22c278 	| #60ff64     	|
+| Yellow     	| #ffc587 	| #fffcc8     	|
+| Blue       	| #3f7de0 	| #5fc5ff     	|
+| Magenta    	| #924fdc 	| #b295ff     	|
+| Cyan       	| #4593a5 	| #5efdf7     	|
+| White      	| #fffdeb 	| #fffdeb     	|
