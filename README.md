@@ -2,19 +2,16 @@
 
 ## System Information
 
-- **OS** - [Arch Linux](archlinux.org)
-- **WM** - [Hyprland](hypr.land)
-- **Compositor** - [Wayland](wayland.freedesktop.org)
-- **Terminal** - [kitty](github.com/kovidgoyal/kitty)
-- **Shell** - Bash with [Starship](starship.rs)
+- **OS** - [Arch Linux](https://archlinux.org)
+- **WM** - [Hyprland](https://hypr.land)
+- **Compositor** - [Wayland](https://wayland.freedesktop.org)
+- **Terminal** - [kitty](https://github.com/kovidgoyal/kitty)
+- **Shell** - Bash with [Starship](https://starship.rs)
 
 ## Other configured apps
 
-- **Editor** - [NeoVim](neovim.io)
-- **App launcher** - [Rofi](github.com/davatorium/rofi)
-- **Notifications** - [Dunst](dunst-project.org)
-- **Bar** - [Waybar](github.com/Alexays/Waybar)
-- **File manager** - [Ranger](github.com/ranger/ranger)
+- **Editor** - [NeoVim](htps://neovim.io)
+- **File manager** - [Ranger](https://github.com/ranger/ranger)
 
 ### Information about scripts
 
@@ -24,7 +21,7 @@ If you already have all packages installed or want to skip all messages, just ru
 
 ## Tokyo Neon
 
-This palette is based in [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) and other palettes ([TechnoGarten](lospec.com/palette-list/technogarten) and [Chasm](lospec.com/palette-list/chasm))
+This palette is based in [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) and other palettes ([TechnoGarten](https://lospec.com/palette-list/technogarten) and [Chasm](https://lospec.com/palette-list/chasm))
 
 | Color      	| Normal  	| Light shade 	|
 |------------	|---------	|-------------	|
