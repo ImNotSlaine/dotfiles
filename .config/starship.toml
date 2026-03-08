@@ -3,18 +3,18 @@
 add_newline = true
 
 format = """
-[ ](bg:#00020C)\
-[ ](bg:#391341)\
-[ ](bg:#631B6D)\
-[ ](bg:#8D2399)\
+[ ](bg:#0e0a2f)\
+[ ](bg:#2f1c5b)\
+[ ](bg:#502d86)\
+[ ](bg:#713eb1)\
 $os\
 $username\
-[](bg:#1D9682 fg:#B72AC4)\
+[](bg:#4593a5 fg:#924fdc)\
 $directory\
-[](bg:#F6EC60 fg:#1D9682)\
+[](bg:#ffc587 fg:#4593a5)\
 $git_branch\
 $git_status\
-[ ](bg:#0F0B15 fg:#F6EC60)\
+[ ](bg:#0e0a2e fg:#ffc587)\
 \n$character
 """
 
@@ -28,7 +28,7 @@ error_symbol = "[  ](fg:#D25751)"
 # and use the os module below
 [username]
 show_always = true
-style_user = "bg:#B72AC4 fg:#EBF8FF"
+style_user = "bg:#924fdc fg:#fffdeb"
 style_root = ""
 format = '[ $user ]($style)'
 disabled = false
@@ -36,14 +36,14 @@ disabled = false
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:#B72AC4 fg:#53D5BF"
+style = "bg:#924fdc fg:#5fc5ff"
 disabled = false # Disabled by default
 
 [os.symbols]
 Arch = " 󰣇 "
 
 [directory]
-style = "bg:#1D9682 fg:#EBF8FF"
+style = "bg:#4593a5 fg:#fffdeb"
 format = "[ $path ]($style)"
 truncation_length = 6
 truncation_symbol = "…/"
@@ -51,8 +51,8 @@ truncation_symbol = "…/"
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
+"Documents" = " "
+"Downloads" = " "
 "Music" = " "
 "Pictures" = " "
 # Keep in mind that the order matters. For example:
@@ -62,12 +62,12 @@ truncation_symbol = "…/"
 # "Important 󰈙 " = " 󰈙 "
 
 [git_branch]
-symbol = ""
-style = "bg:#F6EC60 fg:#120306"
+symbol = ""
+style = "bg:#ffc587 fg:#0e0a2f"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#F6EC60 fg:#120306"
+style = "bg:#ffc587 fg:#0e0a2f"
 format = '[$all_status$ahead_behind ]($style)'
 
 [time]
