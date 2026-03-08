@@ -9,18 +9,24 @@ MGT='\033[0;35m'
 NC='\033[0m'
 
 # Introduction and warnings
-echo -e "Welcome to the ${MGT}NeoNPunk${NC} installation script" && sleep 1
+echo -e "Welcome to the ${MGT}TokyoNeon${NC} installation script" && sleep 1
 echo -e "${RED}This script requires sudo ${NC}in some parts, so keep an eye on the terminal" && sleep 1
 echo -e "${RED}Some personal configurations may override${NC}, execute at your own risk!!!" && sleep 4
 
 # System update
-echo "First a full upgrade..."
-sudo pacman --noconfirm --noprogressbar -Syu
-echo -e "${GREEN}System updated succesfully :D${NC}"
+read -n 1 -p 'Do you want to fully upgrade the system? (y/n): ' upgrade
+echo
+if [ "$upgrade" = "y" ]; then
+	sudo pacman --noconfirm --noprogressbar -Syu
+	echo -e "${GREEN}System updated succesfully :D${NC}"
+else
+	echo "The system won't upgrade"
+	echo "It is recomended to upgrade the system at least after the installation"
+fi
 
 # Needed packages
 echo "Let's install the needed packages..."
-sudo pacman -S --noprogressbar --noconfirm --needed hyprland hyprpaper cpio cmake git meson gcc waybar kitty ttf-mononoki-nerd fastfetch rofi starship
+sudo pacman -S --noprogressbar --noconfirm --needed hyprland hyprpaper cpio cmake git meson gcc kitty ttf-mononoki-nerd fastfetch starship
 echo -e "${GREEN}All packages installed!${NC}"
 
 # Configuration
@@ -29,7 +35,7 @@ ln -f ./.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 echo -e "${GREEN}kitty configured...${NC}"
 ln -f ./.config/starship.toml ~/.config/starship.toml
 echo -e "${GREEN}starship configured...${NC}"
-cp -r ./.config/hypr/wallpapers ~/.config/hypr/wallpapers
+cp -r ./.config/wallpapers ~/.config/wallpapers
 ln -f ./.config/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 echo -e "${GREEN}hyprpaper configured...${NC}"
 ln -f ./.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
@@ -43,6 +49,6 @@ hyprpm enable borders-plus-plus
 echo -e "${GREEN}hyprland configured...${NC}"
 
 # Reboot if wanted
-echo -e "${GREEN}NeoNPunk installed successfully${NC}"
+echo -e "${GREEN}TokyoNeon installed successfully${NC}"
 echo "A reboot is recomended for some configurations to take effect"
-echo -e "Thanks for installing NeoNPunk dotfiles! Have fun\nIf you have any problems or recommendations, create an issue in https://github.com/ImNotSlaine/dotfiles"
+echo -e "Thanks for installing TokyoNeon dotfiles! Have fun\nIf you have any problems or recommendations, create an issue in https://github.com/ImNotSlaine/dotfiles"
