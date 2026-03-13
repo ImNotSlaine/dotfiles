@@ -38,6 +38,7 @@ echo -e "${GREEN}starship configured...${NC}"
 cp -r ./.config/wallpapers ~/.config/wallpapers
 ln -f ./.config/hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 echo -e "${GREEN}hyprpaper configured...${NC}"
+cp -r ./.config/hypr/sources/ ~/.config/hypr/
 ln -f ./.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 # Configuration for hyperland plugins
 if hyprpm list | grep -q "hyprland-plugins"; then
@@ -47,6 +48,7 @@ else
 fi
 hyprpm enable borders-plus-plus
 echo -e "${GREEN}hyprland configured...${NC}"
+ln -s ./config/ags ~/.config/ags
 
 # Reboot if wanted
 echo -e "${GREEN}TokyoNeon installed successfully${NC}"
