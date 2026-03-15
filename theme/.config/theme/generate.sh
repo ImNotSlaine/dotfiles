@@ -40,7 +40,7 @@ color14 $cyan_alt
 color15 $fg
 cursor_text_color $fg
 active_tab_foreground $fg
-active_tab_background $magenta
+active_tab_background $main
 inactive_tab_foreground $fg
 inactive_tab_background $bg
 EOF

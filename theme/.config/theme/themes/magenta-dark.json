@@ -15,5 +15,8 @@
 	"yellow_alt": "#fffcc8",
 	"blue_alt": "#5fc5ff",
 	"magenta_alt": "#b295ff",
-	"cyan_alt": "#5efdf7"
+	"cyan_alt": "#5efdf7",
+
+	"main": "#924fdc",
+	"main_alt": "#b295ff"
 }
