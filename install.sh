@@ -6,6 +6,8 @@ set -e
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/config"
 CONFIG_DIR="$HOME/.config"
 
+DEF_THEME="$(awk '/name/ {print $3}' "$CONFIG_DIR/kitty/_colors.conf")"
+
 RED='\033[0;31m'
 GRE='\033[0;32m'
 MGT='\033[0;35m'
@@ -90,6 +92,7 @@ link_config \
 
 echo -e "${GRE}Theme configured${NC}"
 
+echo -e "Using ${MGT}$DEF_THEME ${NC}theme"
 # Hyprland
 echo "Configuring hyprland..."
 
