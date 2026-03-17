@@ -20,6 +20,7 @@ eval $(jq -r 'to_entries | .[] | "\(.key)=\(.value)"' "$THEME_FILE")
 
 # Kitty implement
 cat <<EOF > "$CONFIG_DIR/kitty/_colors.conf"
+# name $name
 background $bg
 foreground $fg
 color0 $bg_alt
