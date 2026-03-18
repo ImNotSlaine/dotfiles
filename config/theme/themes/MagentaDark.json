@@ -1,24 +1,30 @@
 {
-	"name": "MagentaDark",
+	"meta": {
+		"name": "Magenta Dark"
+	},
+	"colors": {
+		"bg": "#0a0e2e",
+		"fg": "#fffdeb",
 
-	"bg": "#0a0e2e",
-	"bg_alt": "#0a0e2f",
-	"fg": "#fffdeb",
+		"black": "#0a0e2f",
+		"red": "#d53c6a",
+		"green": "#22c278",
+		"yellow": "#ffc587",
+		"blue": "#3f7de0",
+		"magenta": "#924fdc",
+		"cyan": "#4593a5",
+		"white": "#fffdeb",
 
-	"red": "#d53c6a",
-	"green": "#22c278",
-	"yellow": "#ffc587",
-	"blue": "#3f7de0",
-	"magenta": "#924fdc",
-	"cyan": "#4593a5",
+		"black_alt": "#0a0e2f",
+		"red_alt": "#fd75ca",
+		"green_alt": "#60ff65",
+		"yellow_alt": "#fffcc8",
+		"blue_alt": "#5fc5ff",
+		"magenta_alt": "#b295ff",
+		"cyan_alt": "#5efdf7",
+		"white_alt": "#fffdeb",
 
-	"red_alt": "#fd75ca",
-	"green_alt": "#60ff65",
-	"yellow_alt": "#fffcc8",
-	"blue_alt": "#5fc5ff",
-	"magenta_alt": "#b295ff",
-	"cyan_alt": "#5efdf7",
-
-	"main": "#924fdc",
-	"main_alt": "#b295ff"
+		"main": "#924fdc",
+		"main_alt": "#b295ff"
+	}
 }

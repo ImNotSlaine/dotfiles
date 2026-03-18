@@ -15,35 +15,57 @@ if [ ! -f "$THEME_FILE" ]; then
 	exit 1
 fi
 
-# Gets colors from theme
-eval $(jq -r 'to_entries | .[] | "\(.key)=\(.value)"' "$THEME_FILE")
+# Delete old colors
+rm -f \
+	"$CONFIG_DIR/kitty/_colors.conf" \
+	"$CONFIG_DIR/hypr/sources/_colors.conf"
+
+
+jq -r '                                                                                            
+	.colors as $c |
+	def get ($name):
+		$c[$name] // null;
+	def fallback($a; $b):
+		if $a then $a else $b end;
+	def hex($v):
+		if $v then $v else "#000000" end;
+	[ "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white" ] as $base |
+	
+	"#---KITTY---",
+	# Colors from 0 to 7
+	(
+		range(0;8) as $i |
+			"color\($i) " + hex(get($base[$i]))
+	),
+	# Colors from 8 to 15
+	(
+		range(0;8) as $i |
+			"color\($i+8) " + hex(get($base[$i] + "_alt"))
+	),
+	"",
+	"background \($c.bg)",
+	"foreground \($c.fg)",
+	"",
+	"active_tab_background \($c.main)",
+	"active_tab_foreground \($c.fg)",
+	"inactive_tab_background \($c.black)",
+	"inactive_tab_foreground \($c.fg)",
+
+	"#---HYPRLAND---",
+	(
+		$c |
+			to_entries[] |
+			select(.value | startswith("#")) |
+			"$\(.key | gsub("-"; "_")) = rgba(\(.value[1:])ff)"
+	),
+	"",
+
+	"#---STARSHIP---",
+	' "$THEME_FILE" | awk '
+		/^#---KITTY---/ { file="'$CONFIG_DIR'/kitty/_colors.conf"; next }
+		/^#---HYPRLAND---/ { file="'$CONFIG_DIR'/hypr/sources/_colors.conf"; next }
+		{ print >> file}
+	'
 
 # Kitty implement
-cat <<EOF > "$CONFIG_DIR/kitty/_colors.conf"
-# name $name
-background $bg
-foreground $fg
-color0 $bg_alt
-color1 $red
-color2 $green
-color3 $yellow
-color4 $blue
-color5 $magenta
-color6 $cyan
-color7 $fg
-color8 $bg_alt
-color9 $red_alt
-color10 $green_alt
-color11 $yellow_alt
-color12 $blue_alt
-color13 $magenta_alt
-color14 $cyan_alt
-color15 $fg
-cursor_text_color $fg
-active_tab_foreground $fg
-active_tab_background $main
-inactive_tab_foreground $fg
-inactive_tab_background $bg
-EOF
-
 echo "Theme $THEME applied, make sure to have all the imports correct."
