@@ -93,6 +93,7 @@ link_config \
 echo -e "${GRE}Theme configured${NC}"
 
 echo -e "Using ${MGT}$DEF_THEME ${NC}theme"
+
 # Hyprland
 echo "Configuring hyprland..."
 
@@ -134,6 +135,17 @@ link_config \
 	"$CONFIG_DIR/"
 
 echo -e "${GRE}Starship configured${NC}"
+
+# AGS
+echo "Configuring AGS..."
+
+backup "$CONFIG_DIR/ags"
+
+link_config \
+	"$ROOT_DIR/ags" \
+	"$CONFIG_DIR"
+
+echo -e "${GRE}AGS configured${NC}"
 
 # End
 echo -e "${MGT}TokyoNeon${GRE} installed successfully${NC}"

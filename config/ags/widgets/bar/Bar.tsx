@@ -2,6 +2,7 @@ import app from "ags/gtk4/app"
 import Astal from "gi://Astal?version=4.0"
 import Gtk from "gi://Gtk?version=4.0"
 import Gdk from "gi://Gdk?version=4.0"
+import Workspaces from "./components/Workspaces"
 
 export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
 	let win: Astal.Window
@@ -19,14 +20,13 @@ export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
 		>
 			<box class="bar">
 				<box class="bar-left" hexpand>
-					<label label="elementoIzquierda"/>
 				</box>
 				<box class="bar-center" hexpand halign="center">
-					<label label="elementoCentral"/>
-					<label label="elementoCentral 2, se ponen los dos al centro?"/>
+					<box class="out">
+							<Workspaces />
+					</box> 
 				</box>
 				<box class="bar-right">
-					<label label="elementoDerecha"/>
 				</box>
 			</box>
 		</window>
