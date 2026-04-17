@@ -12,9 +12,9 @@
 - x Kitty config
 - x Starship config
 - AGS widgets
-- Nvim config
+- x Nvim config
 - Ranger config
-- Vivaldi config
+- Firefox config
 
 ## IMPORTANT!!
 

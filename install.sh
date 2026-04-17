@@ -76,7 +76,7 @@ sudo pacman -S --noprogressbar --noconfirm --needed \
 echo -e "${GRE}Dependencies from pacman installed${NC}"
 
 paru -S \
-	aylurs-gtk-shell-git \
+	quickshell-git \
 	--noprogressbar --noconfirm --needed
 
 echo -e "${GRE}Dependencies from AUR installed${NC}"
@@ -137,15 +137,15 @@ link_config \
 echo -e "${GRE}Starship configured${NC}"
 
 # AGS
-echo "Configuring AGS..."
+echo "Configuring Quickshell..."
 
-backup "$CONFIG_DIR/ags"
+backup "$CONFIG_DIR/quickshell"
 
 link_config \
-	"$ROOT_DIR/ags" \
+	"$ROOT_DIR/quickshell" \
 	"$CONFIG_DIR"
 
-echo -e "${GRE}AGS configured${NC}"
+echo -e "${GRE}Quickshell configured${NC}"
 
 # End
 echo -e "${MGT}TokyoNeon${GRE} installed successfully${NC}"
