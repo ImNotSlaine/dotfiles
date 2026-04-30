@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CACHE="$1"
-OUTPUT="$HOME/.config/quickshell/Core/Colors.qml"
+OUTPUT="$HOME/.config/quickshell/Core/Theme.qml"
 
 source "$CACHE"
 

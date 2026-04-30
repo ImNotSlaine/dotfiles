@@ -1,9 +1,14 @@
 import QtQuick
+import qs.Core
+import qs.Services
 
 Item {
 	id: root
 
-	Colors {
-		id: colorsService
+	property var config: Config
+	property alias theme: themeService
+
+	Theme {
+		id: themeService
 	}
 }
