@@ -3,6 +3,7 @@ import qs.Core
 import qs.Modules.Bar
 import qs.Modules.Background
 import qs.Modules.Corners
+import qs.Modules.Overlays
 import qs.Services
 
 ShellRoot {
@@ -12,7 +13,11 @@ ShellRoot {
 		id: ctx
 	}
 
-	Background {
+/*	Background {
+	}
+	*/
+	Overlays {
+		context: ctx
 	}
 
 	BarWindow {

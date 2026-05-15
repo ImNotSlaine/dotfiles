@@ -4,6 +4,7 @@ QtObject {
 	id: root
 
 	property bool wallpaperPanelOpen: false
+	property bool sysPanelOpen: false
 
 	function toggleWallpaperPanel() {
 		if (wallpaperPanelOpen) {
@@ -14,7 +15,16 @@ QtObject {
 		}
 	}
 
+	function toggleSysPanel() {
+		if (sysPanelOpen) {
+			sysPanelOpen = false;
+		} else {
+			sysPanelOpen = true;
+		}
+	}
+
 	function closeAll() {
 		wallpaperPanelOpen = false;
+		sysPanelOpen = false;
 	}
 }

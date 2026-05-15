@@ -10,10 +10,22 @@ Item {
 
 	required property Context context
 
-	WallpaperPanel {
-		id: wallpaperPanel
+	SysPanel {
+		id: sysPanel
 
+		ctx: context
+		barHeight: root.context.config.barHeight
 		globalState: root.context.appState
+		isOpen: root.context.appState.sysPanelOpen
+		colors: root.context.theme
+	}
+
+	IpcHandler {
+		function toggle() {
+			root.context.appState.toggleSysPanel();
+		}
+
+		target: "syspanel"
 	}
 
 	IpcHandler {

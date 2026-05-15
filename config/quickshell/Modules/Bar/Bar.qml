@@ -6,6 +6,7 @@ import Quickshell.Hyprland
 import Quickshell.Io
 import qs.Core
 import qs.Services
+import qs.Modules.Bar.Widgets
 
 Rectangle {
 	id: barRoot
@@ -18,13 +19,17 @@ Rectangle {
 	color: colors.bgColor
 	border.width: 0
 
-	Text {
-		anchors.centerIn: parent
+	RowLayout {
+		anchors.fill: parent
+		anchors.leftMargin: 16
+		anchors.rightMargin: 16
+		spacing: 12
 
-		font.pixelSize: fontSize
-		color: colors.fgColor
-		text: "Hola"
-	} 
-	
+		PowerButton {
+			colors: barRoot.colors
+			fontFamily: barRoot.fontFamily
+			fontSize: barRoot.fontSize
+		}
+	}
 }
 

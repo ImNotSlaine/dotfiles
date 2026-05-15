@@ -136,16 +136,16 @@ link_config \
 
 echo -e "${GRE}Starship configured${NC}"
 
-# AGS
+# Quickshell
 echo "Configuring Quickshell..."
 
 backup "$CONFIG_DIR/quickshell"
 
 link_config \
-	"$ROOT_DIR/quickshell" \
+	"$ROOT_DIR/tokyo-neon" \
 	"$CONFIG_DIR"
 
-echo -e "${GRE}Quickshell configured${NC}"
+echo -e "${GRE}TokyoNeon Quickshell configured${NC}"
 
 # End
 echo -e "${MGT}TokyoNeon${GRE} installed successfully${NC}"
