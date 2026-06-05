@@ -14,6 +14,7 @@ Rectangle {
 	required property int fontSize
 	required property Theme theme
 	required property string time
+	required property var globalState
 
 	anchors.fill: parent
 	color: theme.bgColor
@@ -29,6 +30,7 @@ Rectangle {
 			theme: barRoot.theme
 			fontFamily: barRoot.fontFamily
 			fontSize: barRoot.fontSize
+			globalState: barRoot.globalState
 		}
 
 		Clock {

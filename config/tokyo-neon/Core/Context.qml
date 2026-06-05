@@ -7,10 +7,15 @@ Item {
 
 	property var config: Config
 	property alias theme: themeService
+	property alias appState: appStateService
 	property alias time: timeService
 
 	Theme {
 		id: themeService
+	}
+
+	GlobalState {
+		id: appStateService
 	}
 
 	TimeService {

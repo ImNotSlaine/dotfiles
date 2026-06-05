@@ -24,6 +24,7 @@ Variants {
 		}
 
 		Bar {
+			globalState: root.context.appState
 			theme: root.context.theme
 			fontFamily: root.context.config.fontFamily
 			fontSize: root.context.config.fontSize

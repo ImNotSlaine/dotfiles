@@ -6,6 +6,7 @@ Rectangle {
 	id: root
 
 	required property var theme
+	required property var globalState
 	property string fontFamily: "Mononoki Nerd Font"
 	property int fontSize: 16
 
@@ -48,5 +49,6 @@ Rectangle {
 	MouseArea {
 		anchors.fill: parent
 		cursorShape: Qt.PointingHandCursor
+		onClicked: root.globalState.toggleSysPanel()
 	}
 }
