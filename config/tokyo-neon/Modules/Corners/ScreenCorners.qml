@@ -13,7 +13,7 @@ Variants {
 	PanelWindow {
 		property var modelData
 		property int marginTop: context.config.barSize
-		property int cornerSize: 25
+		property int cornerSize: 10
 
 		screen: modelData
 		visible: true
