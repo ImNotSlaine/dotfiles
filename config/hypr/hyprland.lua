@@ -58,6 +58,15 @@ hl.window_rule({
     no_focus = true,
 })
 
+-- Keeps mouse in focused window if it has a class dotnet (steam games)
+hl.window_rule({
+    name = "confine-cursor-games",
+    match = {
+        class = "dotnet",
+    },
+    confine_pointer = true,
+})
+
 --
 -- LAYOUT
 --
