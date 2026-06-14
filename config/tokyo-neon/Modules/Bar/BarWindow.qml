@@ -30,6 +30,7 @@ Variants {
 			fontSize: root.context.config.fontSize
 
 			time: root.context.time.currentTime
+			volume: root.context.volume
 		}
 
 		Behavior on implicitHeight {

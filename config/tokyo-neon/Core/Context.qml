@@ -9,6 +9,7 @@ Item {
 	property alias theme: themeService
 	property alias appState: appStateService
 	property alias time: timeService
+	property var volume: VolumeService
 
 	Theme {
 		id: themeService

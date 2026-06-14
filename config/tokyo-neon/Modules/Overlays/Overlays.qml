@@ -25,4 +25,22 @@ Item {
 
 		target: "syspanel"
 	}
+
+	VolumePanel {
+		id: volumePanel
+
+		config: root.context.config
+		globalState:  root.context.appState
+		isOpen: root.context.appState.volumePanelOpen
+		theme: root.context.theme
+		volume: root.context.volume
+	}
+
+	IpcHandler {
+		function toggle() {
+			root.context.appState.toggleVolumePanel();
+		}
+
+		target: "volumepanel"
+	}
 }

@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
 import qs.Core
+import qs.Services
 import qs.Modules.Bar.Widgets
 
 Rectangle {
@@ -15,6 +16,7 @@ Rectangle {
 	required property Theme theme
 	required property string time
 	required property var globalState
+	required property var volume
 
 	anchors.fill: parent
 	color: theme.bgColor
@@ -42,6 +44,20 @@ Rectangle {
 
 		Item {
 			Layout.fillWidth: true
+		}
+
+//		Workspaces {
+//			theme: barRoot.theme
+//			fontFamily: barRoot.fontFamily
+//			fontSize: barRoot.fontSize
+//		}
+
+		Volume {
+			theme: barRoot.theme
+			fontFamily: barRoot.fontFamily
+			fontSize: barRoot.fontSize
+			globalState: barRoot.globalState
+			volume: barRoot.volume
 		}
 	}
 

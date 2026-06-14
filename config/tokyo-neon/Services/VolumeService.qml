@@ -1,0 +1,69 @@
+import QtQuick
+import Quickshell
+import Quickshell.Services.Pipewire
+
+import qs.Core
+pragma Singleton
+
+Singleton {
+    id: root
+
+    PwObjectTracker {
+        objects: sinks
+    }
+
+    readonly property var sinks: Pipewire.nodes.values.reduce((acc, node) => {
+        if (!node.isStream && node.isSink && node.audio) {
+            acc.push(node);
+        }
+        return acc;
+    }, [])
+
+    readonly property PwNode sink: {
+        if (!Pipewire.ready) return null;
+
+        let defaultSink = Pipewire.defaultAudioSink;
+
+        if (defaultSink && !defaultSink.isStream && defaultSink.isSink && defaultSink.audio) {
+            return defaultSink;
+        }
+
+        return sinks.length > 0 ? sinks[0] : null;
+    }
+
+    readonly property bool ready: !!sink
+    property real volume: sink?.audio?.volume ?? 0
+    Behavior on volume { NumberAnimation { duration: 150; easing.type: Easing.OutCubic } }
+    readonly property bool muted: sink?.audio?.muted ?? false
+    readonly property string description: sink?.description ?? "Audio Output"
+
+    readonly property int level: Math.round(volume * 100)
+
+    readonly property string icon: {
+        if (muted) return " ";
+        const v = volume;
+        if (v <= 0) return " ";
+        if (v < 0.5) return " ";
+        return " ";
+    }
+
+    function setVolume(v) {
+        if (sink && sink.audio) {
+            sink.audio.volume = v;
+        }
+    }
+
+    function toggleMute() {
+        if (sink && sink.audio) {
+            sink.audio.muted = !sink.audio.muted;
+        }
+    }
+
+    function increaseVolume(amount = 0.05) {
+        setVolume(Math.min(1.0, volume + amount));
+    }
+
+    function decreaseVolume(amount = 0.05) {
+        setVolume(Math.max(0.0, volume - amount));
+    }
+}
