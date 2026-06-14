@@ -69,3 +69,6 @@ hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("background"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:background" }))
 
 -- mouse:275 & mouse:276 are extra keys in mouse
+
+-- Quickshell binds
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -p $HOME/.config/tokyo-neon ipc call volumepanel toggle"))
