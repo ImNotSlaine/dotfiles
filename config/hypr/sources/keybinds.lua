@@ -13,6 +13,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(code))
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("steam"))
 
 hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("~/.config/scripts/power.sh"))
 
@@ -60,6 +61,8 @@ end
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + mouse:275", hl.dsp.focus({workspace = 1}))
+hl.bind(mainMod .. " + mouse:276", hl.dsp.focus({workspace = 6}))
 
 -- Special workspace
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("background"))
