@@ -24,8 +24,10 @@ PanelWindow {
 
     color: "transparent"
 
-    implicitHeight: btnSize * 6 + 52
-    implicitWidth: btnSize + 40
+    //implicitHeight: btnSize * 6 + 52
+    //implicitWidth: btnSize + 40
+    implicitHeight: Screen.height - config.barSize
+    implicitWidth: Screen.width
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.namespace: "volume-panel"
     WlrLayershell.exclusiveZone: -1
@@ -36,6 +38,13 @@ PanelWindow {
         right: true
     }
 
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            root.globalState.toggleVolumePanel();
+        }
+    }
+
     FocusScope {
         id: eventHandler
 
@@ -44,8 +53,10 @@ PanelWindow {
 
     Rectangle {
         id: panel
+        x: parent.width - implicitWidth
 
-        anchors.fill: parent
+        implicitHeight: btnSize * 6 + 52
+        implicitWidth: btnSize + 40
         bottomLeftRadius: root.btnRadius
         color: root.theme.bgColor
 
