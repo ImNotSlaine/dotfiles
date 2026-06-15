@@ -43,4 +43,25 @@ Item {
 
 		target: "volumepanel"
 	}
+
+	SinkPanel {
+		id: sinkPanel
+
+		config: root.context.config
+		globalState: root.context.appState
+		isOpen: root.context.appState.sinkPanelOpen
+		theme: root.context.theme
+		sinks: root.context.volume.sinks
+		defaultSink: root.context.volume.sink
+		volume: root.context.volume
+	}
+
+	IpcHandler {
+		function toggle() {
+			root.context.appState.toggleSinkPanel();	
+		}
+
+		target: "sinkpanel"
+	}
+
 }

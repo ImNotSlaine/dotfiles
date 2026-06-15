@@ -66,4 +66,8 @@ Singleton {
     function decreaseVolume(amount = 0.05) {
         setVolume(Math.max(0.0, volume - amount));
     }
+
+    function setDefaultSink(newSink) {
+        Pipewire.preferredDefaultAudioSink = newSink;
+    }
 }

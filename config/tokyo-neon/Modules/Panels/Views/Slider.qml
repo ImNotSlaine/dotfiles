@@ -63,7 +63,7 @@ Rectangle {
             
             Rectangle {
                 width: parent.width
-                height: sliderHandler.height + (slider.visualPosition * (slider.availableHeight - sliderHandler.height))
+                height: sliderHandler.height + (slider.visualPosition * (slider.availableHeight - sliderHandler.height)) - 1
                 color: theme.fgColor
                 radius: barRadius
             }
@@ -75,15 +75,33 @@ Rectangle {
             implicitHeight: barWidth
             implicitWidth: barWidth
             radius: barRadius
-            color: theme.mainColor
+            color: handleHover.hovered ? theme.mainColor : theme.mainAltColor
+
+            Behavior on color {
+                ColorAnimation {
+                    duration: 300
+                    easing.type: Easing.OutCubic
+                }
+            }
 
             Text {
                 text: icon
-                color: theme.fgColor
+                color: handleHover.hovered ? theme.fgColor : theme.bgColor
                 anchors.centerIn: parent
                 leftPadding: -3
                 topPadding: -1
                 font.pixelSize: fontSize
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 300
+                        easing.type: Easing.OutCubic
+                    }
+                }
+            }
+
+            HoverHandler {
+                id: handleHover
             }
         }
     }
