@@ -89,3 +89,8 @@ hl.device({
     name = "logitech-g305-1",
     sensitivity = 1,
 })
+
+hl.device({
+    name = "evision-rgb-keyboard-1",
+    tags = "mageegee-kb",
+})
