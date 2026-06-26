@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
-import qs.Core
-import qs.Modules.Bar
+import qs.core
+import qs.modules.bar
 
 Variants {
 	id: root
@@ -14,7 +14,7 @@ Variants {
 		screen: modelData
 
 		visible: true
-		implicitHeight: root.context.config.barSize
+		implicitHeight: root.context.config.fontSize * 2
 		color: "transparent"
 
 		anchors {
@@ -24,10 +24,6 @@ Variants {
 		}
 
 		Bar {
-			globalState: root.context.appState
-			theme: root.context.theme
-			fontFamily: root.context.config.fontFamily
-			fontSize: root.context.config.fontSize
 			context: root.context
 		}
 

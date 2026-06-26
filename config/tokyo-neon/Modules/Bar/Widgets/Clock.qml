@@ -11,7 +11,7 @@ Rectangle {
 
 	height: 26
 	width: clockText.implicitWidth
-	color: "transparent"
+	color: "blue"
 
 	Text {
 		id: clockText

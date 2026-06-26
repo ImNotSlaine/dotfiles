@@ -10,6 +10,7 @@ Item {
 	property alias appState: appStateService
 	property alias time: timeService
 	property var volume: VolumeService
+	property var hypr: HyprService
 
 	Theme {
 		id: themeService

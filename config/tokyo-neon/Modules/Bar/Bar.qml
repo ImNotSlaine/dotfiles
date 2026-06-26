@@ -14,9 +14,8 @@ Rectangle {
 	required property string fontFamily
 	required property int fontSize
 	required property Theme theme
-	required property string time
 	required property var globalState
-	required property var volume
+	required property var context
 
 	anchors.fill: parent
 	color: theme.bgColor
@@ -39,7 +38,7 @@ Rectangle {
 			theme: barRoot.theme
 			fontFamily: barRoot.fontFamily
 			fontSize: barRoot.fontSize
-			time: barRoot.time
+			time: barRoot.context.time.currentTime
 		}
 
 		Item {
@@ -50,6 +49,7 @@ Rectangle {
 //			theme: barRoot.theme
 //			fontFamily: barRoot.fontFamily
 //			fontSize: barRoot.fontSize
+//			hyprService: barRoot.context.hypr
 //		}
 
 		Volume {
@@ -57,7 +57,7 @@ Rectangle {
 			fontFamily: barRoot.fontFamily
 			fontSize: barRoot.fontSize
 			globalState: barRoot.globalState
-			volume: barRoot.volume
+			volume: barRoot.context.volume
 		}
 	}
 

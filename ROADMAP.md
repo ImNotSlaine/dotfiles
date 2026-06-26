@@ -11,7 +11,7 @@
     - Input file
 - x Kitty config
 - x Starship config
-- AGS widgets
+- Quickshell
 - x Nvim config
 - Ranger config
 - Firefox config

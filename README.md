@@ -8,11 +8,6 @@
 - **Terminal** - [kitty](https://github.com/kovidgoyal/kitty)
 - **Shell** - Bash with [Starship](https://starship.rs) prompt
 
-## Other configured apps
-
-- **Editor** - [NeoVim](https://neovim.io)
-- **File manager** - [Ranger](https://github.com/ranger/ranger)
-
 ## TokyoNeon
 
 This palette is based in [Tokyo Night](https://github.com/tokyo-night/tokyo-night-vscode-theme) and other palettes ([TechnoGarten](https://lospec.com/palette-list/technogarten) and [Chasm](https://lospec.com/palette-list/chasm))

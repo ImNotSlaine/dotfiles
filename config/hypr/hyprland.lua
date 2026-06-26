@@ -4,7 +4,7 @@
 --  SOURCES
 --
 
-require("sources._colors")
+require("sources.theme")
 require("sources.variables")
 require("sources.autostart")
 require("sources.keybinds")

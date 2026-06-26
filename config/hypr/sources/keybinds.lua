@@ -71,7 +71,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:bac
 -- mouse:275 & mouse:276 are extra keys in mouse
 
 -- Quickshell binds
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -p $HOME/.config/tokyo-neon ipc call volumepanel toggle"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -p $HOME/.dotfiles/config/newtokyo ipc call audiopanel toggle"))
 
 -- Audio Control
 
