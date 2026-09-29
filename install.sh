@@ -64,6 +64,15 @@ paru -S --noconfirm --noprogressbar --needed \
 echo -e "${GREEN}Dependencies installed${NC}"
 
 # Kitty config
+echo "Configuring kitty..."
+
+backup "$CONFIG_DIR/kitty"
+
+link_config \
+	"$ROOT_DIR/kitty" \
+	"$CONFIG_DIR/"
+
+echo -e "${GRE}Kitty configured${NC}"
 
 # Check dir
 
