@@ -101,6 +101,17 @@ fi
 
 echo -e "${GRE}Starship configured${NC}"
 
+# Hyprland
+echo "Configuring hyprland..."
+
+backup "$CONFIG_DIR/hypr"
+
+link_config \
+	"$ROOT_DIR/hypr" \
+	"$CONFIG_DIR/"
+
+echo -e "${GRE}Hyprland configured${NC}"
+
 # Check dir
 
 echo -e "${ROOT_DIR}"
