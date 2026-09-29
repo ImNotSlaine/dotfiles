@@ -85,6 +85,17 @@ link_config \
 
 echo -e "${GRE}Kitty configured${NC}"
 
+# Starship
+echo "Configuring starship..."
+
+backup "$CONFIG_DIR/starship.toml"
+
+link_config \
+	"$ROOT_DIR/starship.toml" \
+	"$CONFIG_DIR/"
+
+echo -e "${GRE}Starship configured${NC}"
+
 # Check dir
 
 echo -e "${ROOT_DIR}"
