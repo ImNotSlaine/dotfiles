@@ -63,6 +63,17 @@ paru -S --noconfirm --noprogressbar --needed \
 
 echo -e "${GREEN}Dependencies installed${NC}"
 
+# Add theme module
+echo "Adding theme module..."
+
+link_config \
+	"$ROOT_DIR/theme" \
+	"$CONFIG_DIR/"
+
+config/theme/generate.sh MagentaDark
+
+echo -e "${GREEN}Theme MagentaDark generated${NC}"
+
 # Kitty config
 echo "Configuring kitty..."
 
