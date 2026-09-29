@@ -9,6 +9,7 @@ NC='\033[0m'
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/config"
 CONFIG_DIR="$HOME/.config"
+BASHRC=$HOME/.bashrc
 
 # Functions
 
@@ -93,6 +94,10 @@ backup "$CONFIG_DIR/starship.toml"
 link_config \
 	"$ROOT_DIR/starship.toml" \
 	"$CONFIG_DIR/"
+
+if ! grep -qF 'eval "$(starship init bash)"' "${BASHRC}" ; then
+    echo 'eval "$(starship init bash)"' >> "${BASHRC}"
+fi
 
 echo -e "${GRE}Starship configured${NC}"
 
