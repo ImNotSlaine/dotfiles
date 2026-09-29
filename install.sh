@@ -7,7 +7,28 @@ set -e
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/config"
+CONFIG_DIR="$HOME/.config"
+
+# Functions
+
+link_config() {
+    local src="$1"
+	local dest="$2"
+
+	echo "Linking $src -> $dest"
+
+	mkdir -p "$(dirname "$dest")"
+	ln -sfn "$src" "$dest"
+}
+
+backup() {
+	if [ -e "$1" ] && [ ! -L "$1" ]; then
+		cp -r "$1" "$1.bak.$(date +%s)"
+		rm -R "$1"
+	fi
+}
+
 
 # Check packages
 
@@ -37,9 +58,12 @@ paru -S --noconfirm --noprogressbar --needed \
     kitty \
     starship \
     fastfetch \
+    jq \
     quickshell-git
 
 echo -e "${GREEN}Dependencies installed${NC}"
+
+# Kitty config
 
 # Check dir
 
