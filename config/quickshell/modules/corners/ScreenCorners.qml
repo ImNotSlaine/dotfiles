@@ -1,0 +1,134 @@
+import QtQuick
+import Quickshell
+import Quickshell.Wayland
+import qs.core
+
+Variants {
+	id: screenCorners
+
+	property Context context
+
+	model: Quickshell.screens
+
+	PanelWindow {
+		property var modelData
+		property int marginTop: context.config.fontSize * 2
+		property int cornerSize: context.config.fontSize
+
+		screen: modelData
+		visible: true
+		color: "transparent"
+		exclusionMode: ExclusionMode.Ignore
+		WlrLayershell.namespace: "quickshell:screenCorners"
+		WlrLayershell.layer: WlrLayer.Overlay
+
+		anchors {
+			top: true
+			left: true
+			right: true
+			bottom: true
+		}
+
+		RoundCorner {
+			id: topLeft
+
+			property real verticalSnap: 0
+
+			size: cornerSize
+			anchors.left: parent.left
+			state: "active"
+			anchors.top: parent.top
+			anchors.topMargin: marginTop * verticalSnap
+			corner: RoundCorner.CornerEnum.TopLeft
+			color: context.theme.bg
+			anchors.leftMargin: 0
+
+			states: State {
+				name: "active"
+
+				PropertyChanges {
+					target: topLeft
+					anchors.leftMargin: 0
+					verticalSnap: 1
+				}
+			}
+		}
+
+		RoundCorner {
+			id: topRight
+
+			property real verticalSnap: 0
+
+			size: cornerSize
+			anchors.right: parent.right
+			state: "active"
+			anchors.top: parent.top
+			anchors.topMargin: marginTop * verticalSnap
+			corner: RoundCorner.CornerEnum.TopRight
+			color: context.theme.bg
+			anchors.rightMargin: 0
+
+			states: State {
+				name: "active"
+
+				PropertyChanges {
+					target: topRight
+					anchors.rightMargin: 0
+					verticalSnap: 1
+				}
+			}
+		}
+		
+		RoundCorner {
+			id: bottomLeft
+
+			property real verticalSnap: 0
+
+			size: cornerSize
+			anchors.left: parent.left
+			state: "active"
+			anchors.bottom: parent.bottom
+			corner: RoundCorner.CornerEnum.BottomLeft
+			color: context.theme.bg
+			anchors.rightMargin: 0
+
+			states: State {
+				name: "active"
+
+				PropertyChanges {
+					target: topRight
+					anchors.rightMargin: 0
+					verticalSnap: 1
+				}
+			}
+		}
+
+		RoundCorner {
+			id: bottomRight
+
+			property real verticalSnap: 0
+
+			size: cornerSize
+			anchors.right: parent.right
+			state: "active"
+			anchors.bottom: parent.bottom
+			corner: RoundCorner.CornerEnum.BottomRight
+			color: context.theme.bg
+			anchors.rightMargin: 0
+
+			states: State {
+				name: "active"
+
+				PropertyChanges {
+					target: topRight
+					anchors.rightMargin: 0
+					verticalSnap: 1
+				}
+			}
+		}
+
+		mask: Region {
+			item: null
+		}
+	}
+}
