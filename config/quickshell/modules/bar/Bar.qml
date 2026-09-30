@@ -16,9 +16,9 @@ Rectangle {
 	color: context.theme.bg
 	border.width: 0
 
-	Workspaces {
-		context: barRoot.context
-	}
+	//Workspaces {
+	//	context: barRoot.context
+	//}
 
 	RowLayout {
 		anchors.fill: parent
@@ -42,9 +42,9 @@ Rectangle {
 			Layout.fillWidth: true
 		}
 
-		AudioButton {
-			context: barRoot.context
-		}
+//		AudioButton {
+//			context: barRoot.context
+//		}
 
 //		Workspaces {
 //			theme: barRoot.theme
