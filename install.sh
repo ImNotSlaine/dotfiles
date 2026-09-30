@@ -112,6 +112,17 @@ link_config \
 
 echo -e "${GRE}Hyprland configured${NC}"
 
+# Quickshell
+echo "Configuring Quickshell..."
+
+backup "$CONFIG_DIR/quickshell"
+
+link_config \
+	"$ROOT_DIR/quickshell" \
+	"$CONFIG_DIR"
+
+echo -e "${GRE}Quickshell configured${NC}"
+
 # Check dir
 
 echo -e "${ROOT_DIR}"
