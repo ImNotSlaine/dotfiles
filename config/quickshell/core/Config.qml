@@ -7,7 +7,7 @@ pragma Singleton
 Singleton {
     id: root
 
-    property string configPath: (Quickshell.env("HOME") + "/.config") + "/tokyo-neon/config.json"
+    property string configPath: (Quickshell.env("HOME") + "/.config") + "/qs/config.json"
 
     property string fontFamily: "Mononoki Nerd Font"
     property int fontSize: 14
