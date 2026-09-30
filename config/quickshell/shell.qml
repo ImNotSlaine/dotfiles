@@ -9,6 +9,10 @@ ShellRoot {
         id: ctx
     }
 
+    BarWindow {
+        context: ctx
+    }
+
     ScreenCorners {
         context: ctx
     }
