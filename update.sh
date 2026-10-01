@@ -52,6 +52,17 @@ link_config \
 
 echo -e "${GRE}Kitty configured${NC}"
 
+# Fastfetch config
+echo "Configuring fastfetch..."
+
+backup "$CONFIG_DIR/fastfetch"
+
+link_config \
+	"$ROOT_DIR/fastfetch" \
+	"$CONFIG_DIR/"
+
+echo -e "${GRE}Fastfetch configured${NC}"
+
 # Starship
 echo "Configuring starship..."
 
@@ -88,6 +99,24 @@ link_config \
 	"$CONFIG_DIR"
 
 echo -e "${GRE}Quickshell configured${NC}"
+
+# Configuracion de Bash
+
+if ! grep -qF 'export VISUAL' "${BASHRC}" ; then
+    echo 'export VISUAL=code' >> "${BASHRC}"
+fi
+
+if ! grep -qF 'export EDITOR' "${BASHRC}" ; then
+    echo 'export EDITOR=nvim' >> "${BASHRC}"
+fi
+
+if ! grep -qF "alias ls='eza" "${BASHRC}" ; then
+    echo "alias ls='eza -g --group-directories-first --icons -a -w 80 --sort=name'" >> "${BASHRC}"
+fi
+
+if ! grep -qF "fastfetch" "${BASHRC}" ; then
+    echo "fastfetch --kitty-icat ~/.config/fastfetch/neco-arc.gif" >> "${BASHRC}"
+fi
 
 # Check dir
 
