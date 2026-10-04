@@ -110,6 +110,14 @@ if ! grep -qF 'export EDITOR' "${BASHRC}" ; then
     echo 'export EDITOR=nvim' >> "${BASHRC}"
 fi
 
+if ! grep -qF 'eval "$(ssh-agent -s)"' "${BASHRC}" ; then
+	echo 'eval "$(ssh-agent -s)"' >> "${BASHRC}"
+fi
+
+if ! grep -qF 'ssh-add ~/.ssh/github_rsa' "${BASHRC}" ; then
+	echo 'ssh-add ~/.ssh/github_rsa' >> "${BASHRC}"
+fi
+
 if ! grep -qF "alias ls='eza" "${BASHRC}" ; then
     echo "alias ls='eza -g --group-directories-first --icons -a -w 80 --sort=name'" >> "${BASHRC}"
 fi
