@@ -37,7 +37,7 @@ link_config \
 	"$ROOT_DIR/theme" \
 	"$CONFIG_DIR/"
 
-config/theme/generate.sh MagentaDark
+$HOME/.config/theme/generate.sh MagentaDark
 
 echo -e "${GREEN}Theme MagentaDark generated${NC}"
 
