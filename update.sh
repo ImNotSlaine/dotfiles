@@ -30,17 +30,6 @@ backup() {
 	fi
 }
 
-# Add theme module
-echo "Adding theme module..."
-
-link_config \
-	"$ROOT_DIR/theme" \
-	"$CONFIG_DIR/"
-
-$HOME/.config/theme/generate.sh MagentaDark
-
-echo -e "${GREEN}Theme MagentaDark generated${NC}"
-
 # Kitty config
 echo "Configuring kitty..."
 
@@ -87,6 +76,8 @@ link_config \
 	"$ROOT_DIR/hypr" \
 	"$CONFIG_DIR/"
 
+hyprctl reload
+
 echo -e "${GRE}Hyprland configured${NC}"
 
 # Quickshell
@@ -99,6 +90,17 @@ link_config \
 	"$CONFIG_DIR"
 
 echo -e "${GRE}Quickshell configured${NC}"
+
+# Add theme module
+echo "Adding theme module..."
+
+link_config \
+	"$ROOT_DIR/theme" \
+	"$CONFIG_DIR/"
+
+$HOME/.config/theme/generate.sh MagentaDark
+
+echo -e "${GREEN}Theme MagentaDark generated${NC}"
 
 # Configuracion de Bash
 if ! grep -qF "alias ls='eza" "${BASHRC}" ; then
