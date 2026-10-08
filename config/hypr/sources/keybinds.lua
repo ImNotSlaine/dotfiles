@@ -70,14 +70,14 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:bac
 -- mouse:275 & mouse:276 are extra keys in mouse
 
 -- Quickshell binds
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -p $HOME/.config/tokyo-neon ipc call audiopanel toggle"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs ipc call audiopanel toggle"))
 
 -- Audio Control
 
 -- Mageegee SKY81 (75% Layout)
-hl.bind("F2", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05-"), {repeating = true}, { device = { inclusive = true, list = { "mageegee-kb" } } })
-hl.bind("F3", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05+"), {repeating = true}, { device = { inclusive = true, list = { "mageegee-kb" } } })
-hl.bind("F4", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { device = { inclusive = true, list = { "mageegee-kb" } } })
+hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05-"), {repeating = true}, { device = { inclusive = true, list = { "mageegee-kb" } } })
+hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_SINK@ 0.05+"), {repeating = true}, { device = { inclusive = true, list = { "mageegee-kb" } } })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { device = { inclusive = true, list = { "mageegee-kb" } } })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05-"), { device = { inclusive = true, list = { "mageegee-kb" } } })
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_SINK@ 0.05+"), { device = { inclusive = true, list = { "mageegee-kb" } } })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_SINK@ 0.05+"), { device = { inclusive = true, list = { "mageegee-kb" } } })
 hl.bind("XF86Tools", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_SINK@ toggle"), { device = { inclusive = true, list = { "mageegee-kb" } } })
