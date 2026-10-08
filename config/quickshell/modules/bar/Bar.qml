@@ -42,9 +42,9 @@ Rectangle {
 			Layout.fillWidth: true
 		}
 
-//		AudioButton {
-//			context: barRoot.context
-//		}
+		AudioButton {
+			context: barRoot.context
+		}
 
 //		Workspaces {
 //			theme: barRoot.theme
@@ -53,13 +53,6 @@ Rectangle {
 //			hyprService: barRoot.context.hypr
 //		}
 
-		// Volume {
-		// 	theme: barRoot.theme
-		// 	fontFamily: barRoot.fontFamily
-		// 	fontSize: barRoot.fontSize
-		// 	globalState: barRoot.globalState
-		// 	volume: barRoot.context.volume
-		// }
 	}
 
 }

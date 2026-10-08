@@ -2,6 +2,7 @@ import Quickshell
 import qs.core
 import qs.modules.corners
 import qs.modules.bar
+import qs.modules.overlay
 
 ShellRoot {
     id: root
@@ -15,6 +16,10 @@ ShellRoot {
     }
 
     ScreenCorners {
+        context: ctx
+    }
+
+    Overlay {
         context: ctx
     }
 }
